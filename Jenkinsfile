@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    BUILD_SCRIPTS_GIT="http://10.100.100.10:7990/scm/~myname/mypipeline.git"
+    BUILD_SCRIPTS_GIT="https://github.com/anhdotdo/kubernetes-full-stack-example_ando.git"
     BUILD_SCRIPTS='mypipeline'
     BUILD_HOME='/var/lib/jenkins/workspace'
   }
