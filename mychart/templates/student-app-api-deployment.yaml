@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: student-app-api
+  name: {{ .Values.Deployment.name }} #student-app-api
 spec:
   selector:
     matchLabels:
