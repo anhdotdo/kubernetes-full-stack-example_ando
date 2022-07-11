@@ -2,6 +2,29 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+api:  
+  name: student-app-api
+  image: 
+    repository: anhdo98/student-app-api
+    pullPolicy: Always
+    tag: "0.0.1-SNAPSHOT"
+  service:
+    type: ClusterIP
+    port: 8080
+  replicaCount: 1
+
+client:
+  name: student-app-client
+  image: 
+    repository: anhdo98/student-app-client
+    pullPolicy: Always
+    tag: "v1406"
+  service:
+    type: ClusterIP
+    port: 80
+  replicaCount: 1
+
+
 replicaCount: 1
 
 image:

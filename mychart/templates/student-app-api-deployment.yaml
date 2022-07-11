@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: student-app-api
+  name: {{ .Values.api.name }}
 spec:
   selector:
     matchLabels:
-      app: student-app-api
-  replicas: 1
+      app: {{ .Values.api.name }}
+  replicas: {{ .Values.api.replicaCount }}
   template:
     metadata:
       labels:
-        app: student-app-api
+        app: {{ .Values.api.name }}
     spec:
       containers:
-        - name: student-app-api
-          image: anhdo98/student-app-api:0.0.1-SNAPSHOT
-          imagePullPolicy: Always
+        - name: {{ .Values.api.name }}
+          image: "{{ .Values.api.image.repository }}:{{ .Values.api.image.tag }}"
+          imagePullPolicy: {{ .Values.api.image.pullPolicy }}
           ports:
-            - containerPort: 8080
+            - containerPort: {{ .Values.api.service.port }}
           env:
             - name: MONGO_URL
               value: mongodb://mongo:27017/dev
