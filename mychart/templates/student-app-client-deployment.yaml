@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: student-app-client
+  name: {{ .Values.client.name }}
 spec:
   selector:
     matchLabels:
-      app: student-app-client
-  replicas: 1
+      app: {{ .Values.client.name }}
+  replicas: {{ .Values.client.replicaCount }}
   template:
     metadata:
       labels:
-        app: student-app-client
+        app: {{ .Values.client.name }}
     spec:
       containers:
         - name: student-app-client
-          image: anhdo98/student-app-client:v1406
-          imagePullPolicy: Always
+          image: "{{ .Values.client.image.repository }}:{{ .Values.client.image.tag }}"
+          imagePullPolicy: {{ .Values.client.image.pullPolicy }}
           ports:
-            - containerPort: 80
+            - containerPort: {{ .Values.client.service.port }}

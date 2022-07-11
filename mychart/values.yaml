@@ -2,6 +2,19 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+mongo:
+  fullname: mongo
+  name: mongo
+  image:
+    repository: mongo
+    pullPolicy: Always
+    tag: "3.6.17-xenial"
+  service:
+    type: ClusterIP
+    port: 27017
+  replicaCount: 1
+  persistentVolumeClaim: mongo-pvc
+
 api:  
   name: student-app-api
   image: 
@@ -14,6 +27,7 @@ api:
   replicaCount: 1
 
 client:
+  fullname: student-app-client-service
   name: student-app-client
   image: 
     repository: anhdo98/student-app-client

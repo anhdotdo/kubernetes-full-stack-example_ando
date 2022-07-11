@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: student-app-client-service
+  name: {{ .Values.client.fullname }}
 spec:
   selector:
-    app: student-app-client
+    app: {{ .Values.client.name }}
   ports:
-    - port: 80
+    - port: {{ .Values.client.service.port }}
       protocol: TCP
-      targetPort: 80
-  type: ClusterIP
+      targetPort: {{ .Values.client.service.port }}
+  type: {{ .Values.client.service.type }}
