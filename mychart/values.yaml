@@ -32,7 +32,7 @@ client:
   image: 
     repository: anhdo98/student-app-client
     pullPolicy: Always
-    tag: ""
+    tag: "latest"
   service:
     type: ClusterIP
     port: 80
