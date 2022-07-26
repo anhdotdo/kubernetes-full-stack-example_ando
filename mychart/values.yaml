@@ -32,7 +32,7 @@ client:
   image: 
     repository: anhdo98/student-app-client
     pullPolicy: Always
-    tag: "v7002"
+    tag: "vietnam"
   service:
     type: ClusterIP
     port: 80
