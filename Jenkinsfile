@@ -36,7 +36,9 @@ node{
         sh 'sudo kubectl get svc -A'   
     }   
      
-    stage("Istio helm charts"){ 
+    stage("Istio helm charts"){
+	sh 'sudo helm repo add stable https://charts.helm.sh/stable'
+        sh 'sudo helm repo update' 
         sh 'sudo helm upgrade --install istio-base istio/base -n istio-system' 
         sh 'sudo helm upgrade --install istiod istio/istiod -n istio-system --wait' 
         sh 'sudo helm upgrade --install istio-ingress istio/gateway -n istio-ingress' 
