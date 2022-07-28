@@ -17,8 +17,8 @@ node{
             sh 'echo "docker build image"'   
             //sh 'sudo docker version'   
             //sh 'sudo docker image list'   
-            //sh 'sudo docker build -t student-app-client .'   
-            //sh 'sudo docker tag student-app-client anhdo98/student-app-client:v7004'   
+            sh 'sudo docker build -t student-app-client .'   
+            sh 'sudo docker tag student-app-client anhdo98/student-app-client:v7005'   
         }   
     }   
      
@@ -27,7 +27,7 @@ node{
     }   
 
     stage("Push image to docker hub"){   
-        //sh 'sudo docker push anhdo98/student-app-client:v7004'   
+        sh 'sudo docker push anhdo98/student-app-client:v7005'   
     }   
     
     stage("Deploying front-end, back-end, mongo-db"){   
